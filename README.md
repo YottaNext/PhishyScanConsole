@@ -5,3 +5,6 @@ Command-Line Application for PhishyScan Anti-Phishing API Service.
 * API Pricing: https://rapidapi.com/yottanext-yottanext-default/api/phishyscan-api/pricing
 
 
+© 2023 YottaNext LLC. All Rights Reserved.
+
+
