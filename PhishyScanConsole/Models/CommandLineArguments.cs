@@ -25,7 +25,7 @@ namespace PhishyScanConsole.Models
         public string Host { get; set; }
         [Option('t', "port", Required = false, HelpText = "Port for the email account.")]
         public int Port { get; set; }
-        [Option('f', "folder", Required = false, HelpText = "Folder for the email account to scan.")]
+        [Option('f', "folder", Required = false, HelpText = "Folder on the server for the email account to scan.")]
         public string Folder { get; set; }
     }
 }
