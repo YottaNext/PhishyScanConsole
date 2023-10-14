@@ -11,8 +11,8 @@ namespace PhishyScanConsole.Models
         [Option('s', "server", Required = false, HelpText = "Server nick name to scan.")]
         public string ServerName { get; set; }
 
-        [Option('c', "configure", Required = false, HelpText = "Configure the application.")]
-        public bool Configure { get; set; }
+        [Option('c', "configure", Required = false, HelpText = "Configuration file to load.")]
+        public string ConfigurationFile { get; set; }
 
         [Option('v', "verbose", Required = false, HelpText = "Prints all messages to standard output.")]
         public bool Verbose { get; set; }

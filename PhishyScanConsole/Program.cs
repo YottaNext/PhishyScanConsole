@@ -3,24 +3,30 @@
 using CommandLine;
 using MailKit.Net.Imap;
 using PhishyScanConsole.Models;
-
+using Config.Net;
 
 const string PhishyScanEndpoint = "https://phishyscan-api.p.rapidapi.com/scan";
 
-Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed<CommandLineArguments>(o =>
+
+
+Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed(o =>
 {
-    if (o.Configure)
+    if (o.ConfigurationFile.Length > 0)
     {
+        var config = new ConfigurationBuilder<CommandLineArguments>()
+            .UseIniFile(o.ConfigurationFile)
+            .Build();
 
-        Console.WriteLine($"Configuration saved for server {o.ServerName}");
+        if (o.Verbose) Console.WriteLine($"Configuration loaded for {o.ServerName}");
     }
-    else
-    {
-        Console.WriteLine($"Scanning folder: {o.Folder} ({o.ServerName}");
 
-        using var client = new ImapClient();
-        client.Connect(o.Host, o.Port, useSsl: true);
-    }
+
+
+    Console.WriteLine($"Scanning folder: {o.Folder} ({o.ServerName}");
+
+    using var client = new ImapClient();
+    client.Connect(o.Host, o.Port, useSsl: true);
+
 });
 
 
