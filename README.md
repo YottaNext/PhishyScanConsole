@@ -6,6 +6,12 @@ Command-Line Email Scanner for Anti-Phishing Service, PhishyScan.
 * API is located on RapidAPI, here: https://rapidapi.com/yottanext-yottanext-default/api/phishyscan-api
 * API Pricing: https://rapidapi.com/yottanext-yottanext-default/api/phishyscan-api/pricing
 
+* Until documentation is completed, please view 'config.ini' file for gmail setup example. This is the only file that needs to be modified for the application to start scanning, once launched from the command-line.
+
+* Developed by Michael D. Corbett (mdcorbett.com)
+
 © 2023 YottaNext LLC. All Rights Reserved.
+Website: https://www.yottanext.com.
+
 
 
