@@ -11,14 +11,17 @@ using PhishyScanConsole;
 using Flurl.Http;
 using System.Configuration;
 
+// Scan endpoint for the PhishyScan API.
 const string PhishyScanEndpoint = "/scan";
+// Default configuration file name.
 const string DefaultConfigurationFile = "config.ini";
+// Maximum content length to scan (messages longer than this will be truncated).
 const int MaximumContentLength = 4097;
 Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed(ops =>
 {
-
     try
     {
+        // Load configuration from file.
         var configurationFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, DefaultConfigurationFile);
 
         if (File.Exists(configurationFile))
@@ -26,9 +29,10 @@ Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed(ops =>
             var configuration = new ConfigurationBuilder<IConfiguration>()
                 .UseIniFile(configurationFile)
                 .Build();
-
+            // If verbose is enabled, print the configuration file name.
             if ((bool)configuration?.Verbose) Console.WriteLine($"Configuration loaded from file: {Path.GetFileName(configurationFile)}");
-
+            
+            // Parse command line arguments. If a command line argument is specified, it will override a configuration file value.
             Parser.Default.ParseArguments<CommandLineArguments>(args)
                 .WithParsed(o =>
                 {
@@ -51,6 +55,7 @@ Parser.Default.ParseArguments<CommandLineArguments>(args).WithParsed(ops =>
     catch (Exception ex)
     {
         Console.WriteLine($"Error loading configuration file: {ex.Message}");
+        return;
     }
 
     if (ops?.Host == null)

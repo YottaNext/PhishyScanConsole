@@ -1,5 +1,7 @@
 ﻿namespace PhishyScanConsole;
-
+/// <summary>
+/// Email structure.
+/// </summary>
 public struct Email
 {
     public string Address;

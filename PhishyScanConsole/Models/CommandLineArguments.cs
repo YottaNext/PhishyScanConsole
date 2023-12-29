@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using CommandLine;
 namespace PhishyScanConsole.Models
 {
+    /// <summary>
+    /// Command line arguments configuration settings for the PhishyScanConsole application.
+    /// </summary>
     public class CommandLineArguments: IConfiguration
     {
 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Config.Net;
 namespace PhishyScanConsole.Models
 {
+    /// <summary>
+    /// Interface for configuration settings
+    /// </summary>
     public interface IConfiguration
     {
         [Option(Alias = "host.verbose")]
